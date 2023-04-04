@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "AddPicture";
+}
+
+<h2>AddPicture</h2>
+@using (Html.BeginForm("CutPicture", "Editor", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>URL изображения:</td>
+            <td><input type="text" name="uri" /></td>
+        </tr>
+        <tr>
+            <td>Частей по ширине:</td>
+            <td><input type="number" name="width" /></td>
+        </tr>
+        <tr>
+            <td>частей по длине:</td>
+            <td><input type="number" name="height" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Разрезать"/></td>
+        </tr>
+    </table>
+}
