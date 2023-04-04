@@ -1,0 +1,15 @@
+﻿@model IEnumerable<string>
+
+<h2>Разрез:</h2>
+
+<section>
+    @foreach (var item in Model)
+    {
+        //<img src=@item/>
+        <img src=@item/>
+    }
+
+</section>
+
+@Scripts.Render("~/bundles/jquery")
+<script src='@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")'></script>

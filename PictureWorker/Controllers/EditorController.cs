@@ -1,9 +1,11 @@
-﻿using PictureWorker.Models;
+﻿using Microsoft.Ajax.Utilities;
+using PictureWorker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
@@ -27,16 +29,16 @@ namespace PictureWorker.Controllers
         }
 
         [HttpPost]
-        public int CutPicture(Uri uri, int height, int width)
+        public ActionResult CutPicture(Uri uri, int height, int width)
         {
-            
-            //try
-            //{
             WebClient client = new WebClient();
-            client.DownloadFile(uri, "C://DownloadedPics//new_pic.jpg");
-            List<string> pics = editor.CutPicture("C://DownloadedPics//new_pic.jpg", height, width);
-            return pics.Count;
-
+            string imgName =  "new_pic_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+            string savedImg = editor.pathToLoad + imgName;
+            client.DownloadFile(uri, savedImg);
+            List<Picture> pics = editor.CutPicture(savedImg, height, width);
+            var src = from picture in pics select picture.Path;
+            List<string> images = src.ToList();
+            return PartialView(images);
         }
     }
 }
