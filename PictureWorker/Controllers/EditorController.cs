@@ -36,9 +36,7 @@ namespace PictureWorker.Controllers
             string savedImg = editor.pathToLoad + imgName;
             client.DownloadFile(uri, savedImg);
             List<Picture> pics = editor.CutPicture(savedImg, height, width);
-            var src = from picture in pics select picture.Path;
-            List<string> images = src.ToList();
-            return PartialView(images);
+            return PartialView(pics);
         }
     }
 }

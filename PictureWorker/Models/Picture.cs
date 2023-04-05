@@ -27,6 +27,7 @@ namespace PictureWorker.Models
             try
             {
                 Bitmap.Save(savePath + Name, ImageFormat.Png);
+                Path = savePath + Name;
                 return true;
             }
             catch 

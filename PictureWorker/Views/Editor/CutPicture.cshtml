@@ -1,12 +1,12 @@
-﻿@model IEnumerable<string>
+﻿@model IEnumerable<PictureWorker.Models.Picture>
 
 <h2>Разрез:</h2>
 
 <section>
-    @foreach (var item in Model)
+    @foreach (PictureWorker.Models.Picture item in Model)
     {
-        //<img src=@item/>
-        <img src=@item/>
+        //<p>@item.Path</p>
+        <img src=@$"{item.Path}.png"/>
     }
 
 </section>

@@ -54,7 +54,6 @@ namespace PictureWorker.Models
             int vStep = 1200 / verticalPartsNumber;
 
 
-            string date = DateTime.Now.ToString(); //дата для добавления в обрезаное изображение
             Image baseImage = Image.FromFile(file); //основное изображение
             Bitmap baseBitmap = new Bitmap(baseImage, 1600, 1200); //основное изображение в Bitmap
 
