@@ -3,11 +3,11 @@
 <h2>Разрез:</h2>
 
 <section>
-    @foreach (PictureWorker.Models.Picture item in Model)
-    {
-        //<p>@item.Path</p>
-        <img src=@$"{item.Path}.png"/>
-    }
+@foreach (PictureWorker.Models.Picture item in Model)
+            {
+                <img src=@item.ShortPath/>
+            }
+    <img src="~/Content/Pictures/Downloads/new_pic_20230405060915313.jpg"/>       
 
 </section>
 

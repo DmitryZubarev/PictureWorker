@@ -1,32 +1,10 @@
 ﻿<script>
-    // Получаем ссылку на элемент <section>
-    const section = document.querySelector("#images")
-
-    // Отправляем AJAX-запрос на сервер
-    fetch('/CutPicture')
-        .then(response => response.json())
-        .then(data => {
-            // Перебираем список изображений и добавляем их на страницу
-            data.forEach(imageUrl => {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                section.appendChild(img);
-            });
-        })
-        .catch(error => console.error(error));
-</script>
-
-<script>
     function reset() {
         var section = document.getElementById("images");
         section.innerHTML = "";
     }
     
 </script>
-
-@{
-    ViewBag.Title = "AddPicture";
-}
 
 <h2>AddPicture</h2>
 @using (Ajax.BeginForm("CutPicture", "Editor", new AjaxOptions { UpdateTargetId = "images"}))

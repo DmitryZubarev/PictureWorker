@@ -13,12 +13,14 @@ namespace PictureWorker.Models
         public string Name { get; set; }
         public Bitmap Bitmap { get; set; }
         public string Path { get; set; }
+        public string ShortPath { get; set; }
 
 
         public Picture(Bitmap bm, string name) 
         {
             Bitmap = bm;
             Name = name;
+            ShortPath = @"~/Content/Pictures/Edited/" + Name;
         }
 
 
